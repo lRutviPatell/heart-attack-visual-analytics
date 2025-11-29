@@ -161,7 +161,7 @@ The full report includes reproducible R code for:
 ---
 
 ## 📦 Recommended Project Structure
-Heart-Attack-Prediction-Visualization/
+Heart-Attack-Visual-Analytics/
 │
 ├── README.md
 │
@@ -169,21 +169,21 @@ Heart-Attack-Prediction-Visualization/
 │   └── Data-viz-final-report.pdf
 │
 ├── data/
-│   └── heart_attack_prediction_dataset.csv         # (Add your dataset here)
+│   └── heart_attack_prediction_dataset.csv
 │
 ├── src/
-│   ├── analysis.R                                  # EDA + visualizations
-│   ├── preprocessing.R                             # Data cleaning & transformation
-│   └── dashboard.R                                 # Interactive dashboard code
+│   ├── analysis.R                # EDA + visualizations
+│   ├── preprocessing.R           # Data cleaning & transformation
+│   └── dashboard.R               # Interactive dashboard code
 │
 ├── visuals/
-│   ├── lifestyle_risk_factors.png                  # Page 10 visualization
-│   ├── obesity_diabetes.png                        # Page 10–11
-│   ├── combined_risk_comparison.png                # Page 11–12
-│   ├── cholesterol_vs_heart_rate_scatter.png       # Page 12
-│   ├── cholesterol_vs_heart_rate_heatmap.png       # Page 12
-│   ├── age_group_continent_heatmap.png             # Page 13
-│   └── dashboard_preview.png                       # Screenshot of final dashboard
+│   ├── lifestyle_risk_factors.png
+│   ├── obesity_diabetes.png
+│   ├── combined_risk_comparison.png
+│   ├── cholesterol_vs_heart_rate_scatter.png
+│   ├── cholesterol_vs_heart_rate_heatmap.png
+│   ├── age_group_continent_heatmap.png
+│   └── dashboard_preview.png
 │
 └── code_snippets/
     ├── smoking_risk_plot.R
@@ -192,7 +192,6 @@ Heart-Attack-Prediction-Visualization/
     ├── heart_rate_cholesterol_scatter.R
     ├── heatmap_cholesterol_heart_rate.R
     └── age_continent_heatmap.R
-
 
 ---
 
