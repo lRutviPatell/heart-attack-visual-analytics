@@ -161,6 +161,9 @@ The full report includes reproducible R code for:
 ---
 
 ## 📦 Recommended Project Structure
+## 📁 Recommended Project Structure
+
+```txt
 Heart-Attack-Visual-Analytics/
 │
 ├── README.md
@@ -192,8 +195,8 @@ Heart-Attack-Visual-Analytics/
     ├── heart_rate_cholesterol_scatter.R
     ├── heatmap_cholesterol_heart_rate.R
     └── age_continent_heatmap.R
+```
 
----
 
 ## 🤝 Contributors
 **Group 5 – Data Canvas**  
