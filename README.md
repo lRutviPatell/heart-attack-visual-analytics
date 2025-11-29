@@ -161,3 +161,56 @@ The full report includes reproducible R code for:
 ---
 
 ## 📦 Recommended Project Structure
+Heart-Attack-Prediction-Visualization/
+│
+├── README.md
+│
+├── report/
+│   └── Data-viz-final-report.pdf
+│
+├── data/
+│   └── heart_attack_prediction_dataset.csv         # (Add your dataset here)
+│
+├── src/
+│   ├── analysis.R                                  # EDA + visualizations
+│   ├── preprocessing.R                             # Data cleaning & transformation
+│   └── dashboard.R                                 # Interactive dashboard code
+│
+├── visuals/
+│   ├── lifestyle_risk_factors.png                  # Page 10 visualization
+│   ├── obesity_diabetes.png                        # Page 10–11
+│   ├── combined_risk_comparison.png                # Page 11–12
+│   ├── cholesterol_vs_heart_rate_scatter.png       # Page 12
+│   ├── cholesterol_vs_heart_rate_heatmap.png       # Page 12
+│   ├── age_group_continent_heatmap.png             # Page 13
+│   └── dashboard_preview.png                       # Screenshot of final dashboard
+│
+└── code_snippets/
+    ├── smoking_risk_plot.R
+    ├── obesity_diabetes_plot.R
+    ├── combined_factors_plot.R
+    ├── heart_rate_cholesterol_scatter.R
+    ├── heatmap_cholesterol_heart_rate.R
+    └── age_continent_heatmap.R
+
+
+---
+
+## 🤝 Contributors
+**Group 5 – Data Canvas**  
+- Rutvi Patel  
+- Dhwani Patel  
+- Yagnesh Patel  
+- Sylvia Ozoede  
+
+---
+
+## 📚 References
+Refer to the full report for complete academic citations supporting the analysis.
+
+---
+
+## ⭐ Acknowledgments
+Special thanks to **Professor Eli Brown** for guidance and support throughout the project.
+
+---
