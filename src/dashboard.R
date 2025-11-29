@@ -1,11 +1,15 @@
+# dashboard.R - Shiny dashboard for Heart Attack Visual Analytics
+
 library(shiny)
 library(shinydashboard)
 library(tidyverse)
 library(ggplot2)
 
+# Load dataset
 data_path <- "../data/heart_attack_prediction_dataset.csv"
 data <- read_csv(data_path, show_col_types = FALSE)
 
+# Prepare data
 data <- data %>% mutate(
   Smoking = as.factor(Smoking),
   Obesity = as.factor(Obesity),
@@ -14,6 +18,7 @@ data <- data %>% mutate(
   AgeGroup = cut(Age, breaks = seq(20, 80, 10), include.lowest = TRUE, right = FALSE)
 )
 
+# ---------------- UI ----------------
 ui <- dashboardPage(
   dashboardHeader(title = "Heart Attack Visual Analytics"),
   
@@ -50,25 +55,27 @@ ui <- dashboardPage(
   )
 )
 
+# ---------------- SERVER ----------------
 server <- function(input, output, session) {
-  
+
   filtered <- reactive({
     d <- data
     
-    if (input$continent != "All") 
+    if (input$continent != "All") {
       d <- d %>% filter(Continent == input$continent)
-    
-    if (input$agegroup != "All") 
+    }
+    if (input$agegroup != "All") {
       d <- d %>% filter(AgeGroup == input$agegroup)
+    }
     
     d <- d %>% filter(Heart.Attack.Risk %in% input$riskFilter)
     
     d
   })
   
+  # Plot: Smoking vs Risk
   output$plotSmoking <- renderPlot({
     d <- filtered()
-    
     ggplot(d, aes(x = Smoking, fill = Heart.Attack.Risk)) +
       geom_bar(position = "fill") +
       scale_y_continuous(labels = scales::percent_format()) +
@@ -76,9 +83,9 @@ server <- function(input, output, session) {
       theme_minimal(base_size = 14)
   })
   
+  # Plot: Obesity × Diabetes
   output$plotObesityDiabetes <- renderPlot({
     d <- filtered()
-    
     ggplot(d, aes(x = Obesity, fill = Heart.Attack.Risk)) +
       geom_bar(position = "fill") +
       facet_wrap(~ Diabetes) +
@@ -87,12 +94,13 @@ server <- function(input, output, session) {
       theme_minimal(base_size = 14)
   })
   
+  # Plot: Scatter Cholesterol vs Heart Rate
   output$plotScatter <- renderPlot({
     d <- filtered()
     
     if (!all(c("Cholesterol", "Heart.Rate") %in% names(d))) {
       plot.new()
-      text(0.5, 0.5, "Cholesterol or Heart.Rate not available in dataset")
+      text(0.5, 0.5, "Cholesterol or Heart.Rate not available")
       return()
     }
     
@@ -102,18 +110,22 @@ server <- function(input, output, session) {
       theme_minimal(base_size = 13)
   })
   
+  # Plot: Tile Heatmap Age × Continent
   output$plotTile <- renderPlot({
     d <- filtered()
     
     if (!"Continent" %in% names(d)) {
       plot.new()
-      text(0.5, 0.5, "Continent not available in dataset")
+      text(0.5, 0.5, "Continent column missing")
       return()
     }
     
     risk_tile <- d %>%
       group_by(AgeGroup, Continent) %>%
-      summarize(AvgRisk = mean(as.numeric(as.character(Heart.Attack.Risk))), .groups = "drop")
+      summarize(
+        AvgRisk = mean(as.numeric(as.character(Heart.Attack.Risk))),
+        .groups = "drop"
+      )
     
     ggplot(risk_tile, aes(x = Continent, y = AgeGroup, fill = AvgRisk)) +
       geom_tile(color = "white") +
@@ -122,4 +134,5 @@ server <- function(input, output, session) {
   })
 }
 
+# Run the app
 shinyApp(ui, server)
