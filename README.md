@@ -116,6 +116,9 @@ All visualizations update dynamically for exploratory analysis.
 3. Clinical indicators  
 4. Integrated dashboard  
 
+### Heart Attack Prediction Dashboard
+(https://public.tableau.com/app/profile/rutvi.jagdishkumar.patel/viz/project1datavisualizationforheartattackrisk/Dashboard1)
+
 This provides a natural narrative flow from general population characteristics to specific risk indicators.
 
 ---
