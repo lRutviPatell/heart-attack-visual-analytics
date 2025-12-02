@@ -1,10 +1,5 @@
-# ❤️ Heart Attack Prediction – Data Visualization Project
-### DSC465 – Data Visualization | DePaul University  
-**Group 5 – Data Canvas**  
-Rutvi Patel • Dhwani Patel • Yagnesh Patel • Sylvia Ozoede  
+# ❤️ Heart Attack Prediction – Data Visualization Project 
 **Professor:** Eli Brown  
-**Date:** November 19, 2025
-
 ---
 
 ## 📌 Project Overview
